@@ -34,7 +34,7 @@ const UserForm = (props) => {
                 <label>Lastname: </label> 
                 <input type="text" onChange={ (e) => setLastname(e.target.value) }value={ lastname } />
                     {
-                        lastname.length<1 && lastname.length >0?
+                        lastname.length<3  && lastname.length >0?
                             <p className= "text-danger">Field must be at least 1 character</p>
                             : <p>  </p>
                     }
@@ -52,7 +52,7 @@ const UserForm = (props) => {
 
             <div>
                 <label>Password: </label>
-                <input type="text" onChange={ (e) => setPassword(e.target.value) } value={ password}/>
+                <input type="password" onChange={ (e) => setPassword(e.target.value) } value={ password}/>
                 {
                         password.length<4 && password.length >0?
                             <p className= "text-danger">Field must be at least 4 character</p>
@@ -62,10 +62,10 @@ const UserForm = (props) => {
 
              <div>
                 <label>Confirm: </label>
-                <input type="text" onChange={ (e) => setConfirmpass(e.target.value) } value={ confirmpass }/>
+                <input type="password" onChange={ (e) => setConfirmpass(e.target.value) } value={ confirmpass }/>
                 {
-                        confirmpass.length<4 && confirmpass.length >0?
-                            <p className= "text-danger">Field must be at least 4 character</p>
+                        confirmpass != password ?
+                            <p className= "text-danger">confirm password must match</p>
                             : <p>  </p>
                     }
             </div>
